@@ -163,5 +163,25 @@ catch(Exception e){
 
 	}
 	
+	public void compare(List<Course> list1,List<Course> list2, List<Course> finalList){
+		int i=list1.size()-1;
+		while (i>=0){
+			Course c1 = list1.get(i);
+			
+			int j = list2.size()-1;
+			while (j>=0){
+				Course c2 = list2.get(j);
+				if(c1.getProfessorName().equals(c2.getProfessorName()) && c1.getCourseName().equals(c2.getCourseName())){
+					System.out.println("prof name is "+c1.getProfessorName());
+					finalList.add(c1);
+				}
+				j--;
+			}
+		
+		i--;
+		}
+		
+	}
+	
 
 }
