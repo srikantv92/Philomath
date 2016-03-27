@@ -24,7 +24,12 @@ public class SearchCourses {
 		String value = receivedMessage[1];
 		Search search =  new Search();
 		List<Course> searchResults = new ArrayList<Course>();
+		if(searchBy.contains("professor")){
+			search.searchByProfessor(value, searchResults);
+		}
+		else{
 		search.search(searchBy, value, searchResults);
+		}
 		SearchResults result=  new SearchResults();
 		result.setSearchResults(searchResults);
 		

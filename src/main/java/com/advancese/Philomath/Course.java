@@ -10,6 +10,13 @@ public class Course {
 	String category;
 	String pricing;
 	String address;
+	String travel;
+	public String getTravel() {
+		return travel;
+	}
+	public void setTravel(String travel) {
+		this.travel = travel;
+	}
 	public String getCourseName() {
 		return courseName;
 	}
