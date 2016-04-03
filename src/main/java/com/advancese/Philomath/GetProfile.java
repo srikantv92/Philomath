@@ -34,11 +34,11 @@ public class GetProfile {
 	        ResultSet rs = ((java.sql.Statement) stmt).executeQuery(sql);
 	        while(rs.next()){
 	        	edit.setName(rs.getString("FullName"));
-	        	edit.setAvailability(rs.getString("availability"));
+	        	
 	        	edit.setAddress(rs.getString("address"));
 	        	edit.setPassword(rs.getString("password"));
 	        	edit.setPhoneNum(rs.getString("phoneNumber"));
-	        	edit.setPricing(rs.getString("pricing"));
+	        	
 	        	edit.setTravel(rs.getBoolean("travel"));
 	        	
 	        	edit.setTutor(rs.getBoolean("tutor"));
@@ -50,6 +50,8 @@ public class GetProfile {
         	
 	        while(rs1.next()){
 	        	courses.add(rs1.getString("course"));
+	        	edit.setAvailability(rs1.getString("availability"));
+	        	edit.setPricing(rs1.getString("pricing"));
 	        }
 	        edit.setCourses(courses);
 	        

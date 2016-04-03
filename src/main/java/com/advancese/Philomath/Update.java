@@ -9,6 +9,8 @@ public class Update {
 	String address;
 	String phoneNum;
 	String password;
+	
+	
 	public String getEmail() {
 		return email;
 	}

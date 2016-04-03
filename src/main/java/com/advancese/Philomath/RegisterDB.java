@@ -32,7 +32,7 @@ try{
         sql="INSERT INTO `philoMath`.`RegisterUser` (`Email`, `FullName`, `phoneNumber`, `address`, `password`, `securityQuestion`, `answer`, `travel`, `radius`, `tutor` ,`availability`,`pricing`) VALUES ('"+user.email+"','"+user.fullName+"','"+user.phoneNumber+"','"+user.address+"','"+user.password+"','"+user.securityQuestion+"','"+user.answer+"','"+user.travel+"','"+user.radius+"','"+user.tutor+"','"+user.availability+"','"+user.pricing+"')";
         ((java.sql.Statement) stmt).executeUpdate(sql);
         if(user.tutor){
-        	sql="INSERT INTO Prof_rating (`prof_email`,`course`,`category`) values ('"+user.email+"','"+user.course+"','"+user.category+"')";
+        	sql="INSERT INTO Prof_rating (`prof_email`,`course`,`category`,`availability`,`pricing`) values ('"+user.email+"','"+user.course+"','"+user.category+"','"+user.availability+"','"+user.pricing+"')";
         	((java.sql.Statement) stmt).executeUpdate(sql);
         }
         response="success";

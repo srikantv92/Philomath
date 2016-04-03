@@ -38,7 +38,17 @@ public class Search {
 	        	course= new Course();
 	        	course.setCategory(rs.getString("category"));
 	        	course.setCourseName(rs.getString("course"));
-	        	
+	        	course.setAvailability(rs.getString("availability"));
+	        	course.setPricing(rs.getString("pricing"));
+	        	System.out.println("Pricing info is "+course.getPricing());
+	        	String pricing= course.getPricing();
+	        	if(pricing==null || pricing.isEmpty()){
+	        		course.setPricing("Pricing information not available");
+	        	}
+	        	String availability=course.getAvailability();
+	        	if(availability == null || pricing.isEmpty()){
+	        		course.setAvailability("Availability information not available");
+	        	}
 	        	
 	        	String email= rs.getString("prof_email");
 	        	System.out.println("Email is "+email);
@@ -57,17 +67,7 @@ public class Search {
 	        		else{
 	        			course.setTravel("Not Willing to travel");
 	        		}
-		        	course.setAvailability(rs2.getString("availability"));
-		        	course.setPricing(rs2.getString("pricing"));
-		        	System.out.println("Pricing info is "+course.getPricing());
-		        	String pricing= course.getPricing();
-		        	if(pricing==null){
-		        		course.setPricing("Pricing information not available");
-		        	}
-		        	String availability=course.getAvailability();
-		        	if(availability == null){
-		        		course.setAvailability("Availability information not available");
-		        	}
+		        	
 	        		
 	        	}
 	        	searchResults.add(course);

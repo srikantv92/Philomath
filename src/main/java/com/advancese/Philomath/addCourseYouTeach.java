@@ -16,13 +16,17 @@ import com.mysql.jdbc.Statement;
 public class addCourseYouTeach {
 	
 	@POST
-	@Consumes(MediaType.TEXT_PLAIN)
+	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.TEXT_PLAIN)
-	public String addCourseYouTeach(String request){
-		String[] requestMessage=request.split(",");
-		String email=requestMessage[0];
-		String course = requestMessage[1];
-		String category = requestMessage[2];
+	public String addCourseYouTeach(AddedCourse course){
+		
+		
+		
+		String email=course.getEmail();
+		String courseName = course.getCourse();
+		String category = course.getCategory();
+		String availability=course.getAvailability();
+		String pricing=course.getPricing();
 		
 		String result="";
 		 final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
@@ -44,7 +48,7 @@ public class addCourseYouTeach {
 	        stmt = (Statement) conn.createStatement();
 	        String sql;
 	      
-	        sql="INSERT INTO `philoMath`.`Prof_rating` (`prof_email`,`course`,`category`) VALUES ('"+email+"','"+course+"','"+category+"')";
+	        sql="INSERT INTO `philoMath`.`Prof_rating` (`prof_email`,`course`,`category`,`availability`,`pricing`) VALUES ('"+email+"','"+courseName+"','"+category+"','"+availability+"','"+pricing+"')";
 	        System.out.println("insert query is "+sql);
 	       ((java.sql.Statement) stmt).executeUpdate(sql);
 	       
