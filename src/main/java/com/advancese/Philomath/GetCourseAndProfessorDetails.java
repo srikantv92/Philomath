@@ -64,8 +64,9 @@ public class GetCourseAndProfessorDetails {
 		        	o.put("clarity",rs.getString("clarity"));
 		        	o.put("easiness",rs.getString("easiness"));
 		        	o.put("overall",rs.getString("overall"));
-		        	o.put("profEmail", prof);
+		        	
 		        	String email2=profEmail(prof);
+		        	o.put("profEmail", email2);
 		        	/*String sql3="SELECT * FROM `philoMath`.`RegisterUser` WHERE FullName like '%"+prof+"%'";
 		        	ResultSet rs3 = stmt.executeQuery(sql3);
 		        	String email2="";
