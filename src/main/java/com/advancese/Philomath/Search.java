@@ -40,6 +40,16 @@ public class Search {
 	        	course.setCourseName(rs.getString("course"));
 	        	course.setAvailability(rs.getString("availability"));
 	        	course.setPricing(rs.getString("pricing"));
+	        	String rating=rs.getString("rating");
+	        	if(rating==null || rating.isEmpty()){
+	        		rating="0";
+	        	}
+	        	course.setRating(rating);
+	        	String numOfVotes=rs.getString("numberOfVotes");
+	        	if(numOfVotes==null || numOfVotes.isEmpty()){
+	        		numOfVotes="0";
+	        	}
+	        	course.setNumOfVotes(numOfVotes);
 	        	System.out.println("Pricing info is "+course.getPricing());
 	        	String pricing= course.getPricing();
 	        	if(pricing==null || pricing.isEmpty()){

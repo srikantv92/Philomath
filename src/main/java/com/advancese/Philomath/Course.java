@@ -11,6 +11,20 @@ public class Course {
 	String pricing;
 	String address;
 	String travel;
+	String rating;
+	String numOfVotes;
+	public String getRating() {
+		return rating;
+	}
+	public void setRating(String rating) {
+		this.rating = rating;
+	}
+	public String getNumOfVotes() {
+		return numOfVotes;
+	}
+	public void setNumOfVotes(String numOfVotes) {
+		this.numOfVotes = numOfVotes;
+	}
 	public String getTravel() {
 		return travel;
 	}
