@@ -15,11 +15,11 @@ public class ForgotPasswordAuthentication {
 		JSONObject obj=new JSONObject();
 		
 		 final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-	        final String DB_URL = "jdbc:mysql://173.194.233.74/philoMath";
+	        final String DB_URL = "jdbc:mysql://173.194.236.239/philoMath";
 	        String response;
 	        //  Database credentials
 	        String USER = "root";
-	        String PASS = "admin";
+	        String PASS = "";
 
 	        Connection conn = null;
 	        Statement stmt = null;
