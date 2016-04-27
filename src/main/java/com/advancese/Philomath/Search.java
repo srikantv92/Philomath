@@ -131,6 +131,7 @@ try{
         while(rs.next()){
         	course= new Course();
         	course.setCategory(rs.getString("category"));
+        	course.setRating(rs.getString("rating"));
         	course.setCourseName(rs.getString("course"));
         	
         	
