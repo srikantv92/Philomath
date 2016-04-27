@@ -31,7 +31,8 @@ public class Search {
 	        stmt = (Statement) conn.createStatement();
 	        String sql;
 	        Course course;
-	        sql="SELECT * FROM `philoMath`.`Prof_rating` WHERE `"+ searchBy +"` like '"+value+"';";
+	        sql="SELECT * FROM `philoMath`.`Prof_rating` WHERE `"+ searchBy +"` like '%"+value+"%';";
+	        System.out.println("'%"+"abc"+"'");
 	        System.out.println("Query is "+sql);
 	        ResultSet rs = ((java.sql.Statement) stmt).executeQuery(sql);
 	        while(rs.next()){
@@ -115,6 +116,7 @@ try{
         
         
         String queryforEmail="SELECT * from `philoMath`.`RegisterUser` WHERE FullName like '%"+value+"%'";
+        System.out.println("'%"+"abc"+"'");
     	Statement stmt4 = (Statement) conn.createStatement();
     	 System.out.println(" first Query is "+queryforEmail);
     	 System.out.println("result is "+stmt4.executeQuery(queryforEmail));

@@ -40,9 +40,18 @@ public class Promote {
 		System.out.println(input+"input is ");
 		String[] in=input.split(";");
 		getDetails(in[0], in[1]);
+		int index=0;
+		for(int i=0;i<list.size();i++){
+			if(list.get(i).equals(in[0])){
+				index=i;
+				break;
+			}
+		}
+		list.remove(index);
 		for(int i=0;i<list.size();i++){
 			sendSensitivityEmail(list.get(i));
 		}
+		sendSensitivityEmailToProf(in[0]);
 	}
 	
 	public void getDetails(String email,String course){
@@ -145,6 +154,73 @@ try{
 		//String to = "supriya.saraogi1314@gmail.com";
 		String subject = "PhiloMath Ad";
 		String messagetext = "Hello Students! <br><br> A course has been added in PhiloMath Application. Please find the details of course below -<br>"+details;
+		
+		final String username = "srikant.vadrevu@gmail.com";//change accordingly
+		final String password = "beyblade";//change accordingly
+
+		Properties props = new Properties();
+		
+		props.put("mail.smtp.auth", "true");
+		props.put("mail.smtp.starttls.enable", "true");
+		props.put("mail.smtp.host", "smtp.gmail.com");
+		props.put("mail.smtp.port", "587");
+
+		// Get the Session object.
+		Session session = Session.getInstance(props,
+		 new javax.mail.Authenticator() {
+		    protected PasswordAuthentication getPasswordAuthentication() {
+		       return new PasswordAuthentication(username, password);
+		    }
+		 });
+
+		try {
+		 // Create a default MimeMessage object.
+		 Message message = new MimeMessage(session);
+		 
+		 // Set From: hseader field of the header.
+		 message.setFrom(new InternetAddress(from));
+
+		 // Set To: header field of the header.
+		 message.setRecipients(Message.RecipientType.TO,
+		    InternetAddress.parse(to));
+
+
+		 // Set Subject: header field
+		 message.setSubject(subject);
+
+		 // Create the message part
+		 BodyPart messageBodyPart = new MimeBodyPart();
+
+		 // Now set the actual message
+		 messageBodyPart.setHeader("Content-Type", "text/html");
+		 //messageBodyPart.setText(messagetext);
+		 
+		 messageBodyPart.setContent(messagetext, "text/html; charset=utf-8");
+		 // Create a multipar message
+		 Multipart multipart = new MimeMultipart();
+
+		 // Set text message part
+		 multipart.addBodyPart(messageBodyPart);
+
+		
+		 message.setContent(multipart);			
+		 Transport.send(message);
+		 System.out.println("Sent to "+to);
+
+		} catch (MessagingException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+	}
+	
+	public void sendSensitivityEmailToProf(String to) throws RuntimeException{
+		System.out.println("Sending emails..");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String datetime = sdf.format(new Date());
+		String from = "noreply@philomath.com";
+		//String to = "supriya.saraogi1314@gmail.com";
+		String subject = "PhiloMath Ad";
+		String messagetext = "Hello Tutor, you have successfully requested for Advertisement service. A promotional Email will be sent to all the users of PhiloMath regarding your course details. <br><br> Best Regards,<br>PhiloMath Team";
 		
 		final String username = "srikant.vadrevu@gmail.com";//change accordingly
 		final String password = "beyblade";//change accordingly
