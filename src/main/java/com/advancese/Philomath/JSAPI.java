@@ -1,11 +1,21 @@
 package com.advancese.Philomath;
 
 public class JSAPI {
-	
-	Student student1;
-	Student student2;
-	Student student3;
-	Student student4;
+	private Student student1;
+	private Student student2;
+	private Student student3;
+	private Student student4;
+	private Student student5;
+	private Student student6;
+	private Student student7;
+	private Student student8;
+	private Student student9;
+	private Student student10;
+
+	public JSAPI() {
+
+	}
+
 	public Student getStudent4() {
 		return student4;
 	}
@@ -62,17 +72,6 @@ public class JSAPI {
 		this.student10 = student10;
 	}
 
-	Student student5;
-	Student student6;
-	Student student7;
-	Student student8;
-	Student student9;
-	Student student10;
-	
-	public JSAPI(){
-		
-	}
-
 	public Student getStudent1() {
 		return student1;
 	}
@@ -96,6 +95,4 @@ public class JSAPI {
 	public void setStudent3(Student student3) {
 		this.student3 = student3;
 	}
-	
-
 }

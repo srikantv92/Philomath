@@ -8,15 +8,12 @@ import javax.ws.rs.core.MediaType;
 
 @Path("/resetpassword")
 public class ResetPassword {
-	ResetPassDB resetDb = new ResetPassDB();
-	
+	private ResetPassDB resetDb = new ResetPassDB();
+
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.TEXT_PLAIN)
-	public String reset(ResetPass reset){
-		String result= resetDb.authenticate(reset);
-		return result;
+	public String reset(ResetPass reset) {
+		return resetDb.authenticate(reset);
 	}
-	
-	
 }

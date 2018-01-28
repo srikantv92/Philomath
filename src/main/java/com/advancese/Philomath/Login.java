@@ -8,17 +8,13 @@ import javax.ws.rs.core.MediaType;
 
 @Path("/login")
 public class Login {
-	
-	LoginAuthentication auth = new LoginAuthentication();
-	
+
+	private LoginAuthentication auth = new LoginAuthentication();
+
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.TEXT_PLAIN)
-	public String loginUser(LoginUser login){
-		
-	String a=	auth.authenticate(login);
-		
-		return a;
+	public String loginUser(LoginUser login) {
+		return auth.authenticate(login);
 	}
-
 }

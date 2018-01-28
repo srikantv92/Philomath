@@ -11,19 +11,16 @@ import javax.ws.rs.core.MediaType;
 
 import org.glassfish.jersey.server.JSONP;
 
-
 @Path("/register")
-
 public class Register {
 
-	RegisterDB reg = new RegisterDB();
-	
+	private RegisterDB reg = new RegisterDB();
+
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.TEXT_PLAIN)
-	public String registerUser(RegisterUser user) throws ClassNotFoundException, SQLException{
-		
+	public String registerUser(RegisterUser user) throws ClassNotFoundException, SQLException {
 		return reg.insertData(user);
 	}
-	
+
 }

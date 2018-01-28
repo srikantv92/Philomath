@@ -1,14 +1,14 @@
 package com.advancese.Philomath;
 
 public class AddedCourse {
-	String email;
-	String course;
-	String category;
-	String pricing;
-	String availability;
-	
-	public AddedCourse(){
-		
+	private String email;
+	private String course;
+	private String category;
+	private String pricing;
+	private String availability;
+
+	public AddedCourse() {
+
 	}
 
 	public String getEmail() {
@@ -50,8 +50,4 @@ public class AddedCourse {
 	public void setAvailability(String availability) {
 		this.availability = availability;
 	}
-	
-	
-	
-
 }

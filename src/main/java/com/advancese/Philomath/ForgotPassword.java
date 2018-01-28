@@ -10,16 +10,13 @@ import org.json.simple.JSONObject;
 
 @Path("/forgotpassword")
 public class ForgotPassword {
-	
-	ForgotPasswordAuthentication auth = new ForgotPasswordAuthentication();
+	private ForgotPasswordAuthentication auth = new ForgotPasswordAuthentication();
 
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public String forgot(ForgotPasswordUser user){
-		
-		 JSONObject obj= auth.authenticate(user);
-		 return obj.toJSONString();
+	public String forgot(ForgotPasswordUser user) {
+		JSONObject obj = auth.authenticate(user);
+		return obj.toJSONString();
 	}
-	
 }

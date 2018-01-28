@@ -1,8 +1,12 @@
 package com.advancese.Philomath;
 
 public class Address {
-	
-	String latitude;
+	private String latitude;
+	private String longitude;
+
+	public Address() {
+	}
+
 	public String getLatitude() {
 		return latitude;
 	}
@@ -18,12 +22,4 @@ public class Address {
 	public void setLongitude(String longitude) {
 		this.longitude = longitude;
 	}
-
-	String longitude;
-	
-	public Address(){
-		
-	}
-	
-
 }

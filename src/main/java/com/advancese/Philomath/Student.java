@@ -1,12 +1,14 @@
 package com.advancese.Philomath;
 
 public class Student {
-	
-	String firstName;
-	String lastName;
-	String age;
-	Address address;
-	
+	private String firstName;
+	private String lastName;
+	private String age;
+	private Address address;
+
+	public Student() {
+	}
+
 	public String getFirstName() {
 		return firstName;
 	}
@@ -38,11 +40,4 @@ public class Student {
 	public void setAddress(Address address) {
 		this.address = address;
 	}
-
-	public Student(){
-		
-	}
-
-	
-
 }

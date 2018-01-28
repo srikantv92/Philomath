@@ -7,46 +7,30 @@ import java.sql.ResultSet;
 import com.mysql.jdbc.Statement;
 
 public class ResetPassDB {
-	
-	public String authenticate(ResetPass reset){
-		
-		
-		final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-        final String DB_URL = "jdbc:mysql://173.194.236.239/philoMath";
-        String response="";
-        //  Database credentials
-        String USER = "root";
-        String PASS = "";
 
-        Connection conn = null;
-        Statement stmt = null;
-    	try{
-	        Class.forName("com.mysql.jdbc.Driver");
+	public String authenticate(ResetPass reset) {
+		String response = "";
 
-	        //Connecting to Database
-	        conn = DriverManager.getConnection(DB_URL, USER, PASS);
+		Connection conn = null;
+		Statement stmt = null;
+		try {
+			conn = PhiloMathUtils.getDatabaseConnection();
 
-	        stmt = (Statement) conn.createStatement();
-	        String sql;
+			stmt = (Statement) conn.createStatement();
+			String sql;
 
-	        sql = "UPDATE RegisterUser SET password="+"'"+reset.password+"' where email="+"'"+reset.email+"'";
-	          stmt.executeUpdate(sql);
-	    
-	         
-	        
-	       
-	         response="success";
-	         stmt.close();
-	         conn.close();
-	         
-	}
-	catch(Exception e){
-		response="failed";
-		System.out.println(e);
-		response=e.toString();
-	}
-		
+			sql = "UPDATE RegisterUser SET password=" + "'" + reset.getPassword() + "' where email=" + "'"
+					+ reset.getEmail() + "'";
+			stmt.executeUpdate(sql);
+
+			response = "success";
+			stmt.close();
+			conn.close();
+		} catch (Exception e) {
+			response = "failed";
+			response = e.toString();
+		}
+
 		return response;
 	}
-
 }

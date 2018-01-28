@@ -7,44 +7,31 @@ import java.sql.ResultSet;
 import com.mysql.jdbc.Statement;
 
 public class UpdateProfileDB {
-	
-	public String update(String field,String value, String Email){
-		
-			String result="";
-			 final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-		        final String DB_URL = "jdbc:mysql://173.194.236.239/philoMath";
-		        String response;
-		        //  Database credentials
-		        String USER = "root";
-		        String PASS = "";
 
-		        Connection conn = null;
-		        Statement stmt = null;
-		try{
-		        Class.forName("com.mysql.jdbc.Driver");
+	public String update(String field, String value, String Email) {
+		String result = "";
+		String response;
 
-		        //Connecting to Database
-		        conn = DriverManager.getConnection(DB_URL, USER, PASS);
+		Connection conn = null;
+		Statement stmt = null;
+		try {
+			conn = PhiloMathUtils.getDatabaseConnection();
 
+			stmt = (Statement) conn.createStatement();
+			String sql;
 
-		        stmt = (Statement) conn.createStatement();
-		        String sql;
-		      
-		        sql="UPDATE `philoMath`.`RegisterUser` SET `"+ field +"`='"+value+"'  WHERE `Email` like '"+Email+"';";
-		        System.out.println("update query is "+sql);
-		       ((java.sql.Statement) stmt).executeUpdate(sql);
-		       
-		       result="success";
-		        conn.close();
+			sql = "UPDATE `philoMath`.`RegisterUser` SET `" + field + "`='" + value + "'  WHERE `Email` like '" + Email
+					+ "';";
+
+			((java.sql.Statement) stmt).executeUpdate(sql);
+
+			result = "success";
+			conn.close();
+		} catch (Exception e) {
+			result = e.toString();
+			response = e.toString();
 		}
-		catch(Exception e){
-			System.out.println(e);
-			result=e.toString();
-			response=e.toString();
-		}
-		
+
 		return result;
-		
 	}
-
 }

@@ -1,11 +1,10 @@
 package com.advancese.Philomath;
 
 public class ForgotPasswordUser {
-	
-	String email;
-	
-	public ForgotPasswordUser(){
-		
+
+	private String email;
+
+	public ForgotPasswordUser() {
 	}
 
 	public String getEmail() {
@@ -15,5 +14,4 @@ public class ForgotPasswordUser {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
 }
